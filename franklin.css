@@ -1,0 +1,271 @@
+
+                *{
+                    text-decoration: none;
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    box-sizing: border-box;
+
+                }
+
+                body{
+                    font-family: 'Ariel',sans-serif;
+                    font-size: 15px;
+                    line-height: 1.5;
+                    background-image: url(../images/Adinkra-nkyinkyim-bold-400w-280x280.png);
+                    background-repeat: repeat-y,no-repeat;
+                    background-position: left center;
+                    background-size: 5%;
+                    margin-left: 0;
+
+                }
+
+                nav{
+                    background:#025037 ;
+                    height: 80px;
+                    width: 100%;
+                }
+
+
+                label.logo{
+                    margin: 6px;
+                    font-size: 35px;
+                    cursor: pointer;
+                    line-height: 80px;
+                    font-weight: bold;
+                    color: white;
+                    padding: 0 100px;
+                }
+
+                nav ul{
+                    float: right;
+                    margin-right: 40px;
+                }
+
+                nav li{
+                    display: inline-block;
+                    margin:8px;
+                    line-height: 80px;
+                }
+
+                nav a{
+                    color: white;
+                    font-size: 18px;
+                    text-transform: uppercase;
+                    border: 1px solid transparent;
+                    padding: 7px 10px;
+                    border: 3px;
+                }
+
+                a.active,a:hover{
+                    border: 1px solid white;
+                    transition: .5s;
+                }
+
+                nav #icon{
+                    color: white;
+                    font-size: 30px;
+                    line-height: 80px;
+                    float: right;
+                    margin-right: 40px;
+                    cursor: pointer;
+                    display: none;
+                }
+
+                @media(max-width : 1048px){
+                label.logo{
+                    font-size: 32px;
+                    padding-left: 60px;
+                }
+
+                nav ul{
+                    margin-right: 20px;
+                }
+
+                nav a{
+                    font-size: 17px;
+                }
+                }
+
+                @media(max-width : 909px){
+                nav #icon{
+                    display: block;
+                }
+
+                nav ul{
+                    position: fixed;
+                    width: 100%;
+                    height: 100vh;
+                    background: #2f3640;
+                    top: 80px;
+                    left: 100%;
+                    text-align: center;
+                    transition: all .5s;
+                }
+
+                nav li{
+                    display: block;
+                    margin: 50px 0;
+                    line-height: 30px;
+                }
+
+                nav a{
+                    font-size: 20px;
+                }
+
+                a .active, a:hover{
+                    border: none;
+                    color: #3498db;
+
+                }
+
+                nav ul .show{
+                    left: 0;
+                }
+
+                }
+
+                /* imgutils set to visible To UpLoad Images to FirebaseDatabase*/
+
+                #imgutils{
+                    visibility:hidden;
+                }
+
+                ul li{
+                    font-size: 20px;
+                }
+
+                div{
+                max-width: 1200px;
+                margin: auto;
+                padding: 5px;
+                overflow: auto;
+                background-color: #f2f2f2;
+                } 
+
+                .gallery{
+                border: 1px solid #ccc;
+                float: left;
+                width: 390px;
+                margin: 1rem;
+                border: 5px solid rgb(246, 235, 235);
+                }
+
+                .gallery img{
+                width: 100%;
+                height: auto;
+                }
+
+                .gallery figcaption{
+                padding: 15px;
+                text-align: center;
+                background-color:white;
+                font-size: medium;
+                font-style: normal;
+                } 
+
+                .gallery img:hover{
+                    cursor: pointer;
+                    filter: brightness(77%);
+                }
+
+                #backtotop{
+                right: 10px;
+                bottom: 10px;
+                width: 50px;
+                height: 50px;
+                margin: 5px;
+                position:fixed;
+                border-radius: 50%;
+                background: #e62739;
+                box-shadow: 0 0 10px rgb(0,0,0,0.25);
+                color: #ffff;
+                outline: none;
+                cursor: pointer;
+                border: none;
+                }
+
+                #backtotop:active{
+                background: #cc2333;
+                }
+
+                #copyright{
+                text-align: center;
+                margin: 0.5px;
+                font-style: oblique;
+                color:white;
+                }
+
+                footer{
+                padding: 20px;
+                font-size: 17px;
+                font-weight: bold;
+                text-align: center;
+                background:#025037 ;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                letter-spacing: 1px;
+                }
+
+
+                .rsvp{
+                    font-size: 1.5rem;
+                    text-align:center;
+                    margin:1rem;
+                    text-shadow: 2px 2px 5px #fc0303;   
+                    color: #0b0b0b;
+                    font-weight: bold;
+                }
+
+                                /* Full-screen overlay styles */
+                #fullscreenOverlay {
+                    display: none; /* Hidden by default */
+                    position: fixed; /* Stay in place */
+                    z-index: 1000; /* Sit on top */
+                    margin: 5rem;
+                    left: 0;
+                    top: 0;
+                    width: 100%; /* Full width */
+                    height: 100%; /* Full height */
+                    overflow: auto; /* Enable scroll if needed */
+                    background-color: rgba(252, 249, 249, 0.9); /* Black w/ opacity */
+                    justify-content: center; /* Center content horizontally */
+                    align-items: center; /* Center content vertically */
+                    flex-direction: column; /* Stack image and caption vertically */
+                    border: 5px solid silver;
+                }
+
+                #fullscreenImage {
+                    max-width: 90%;
+                    max-height: 85%; /* Adjust to leave space for caption and close button */
+                    display: block; /* Remove extra space below image */
+                    margin: auto; /* Center the image */
+                    object-fit: contain; /* Ensure the image fits within the bounds without cropping */
+                }
+
+                #fullscreenCaption {
+                    color: black;
+                    font-size: 1.5rem;
+                    padding: 10px 0;
+                    text-align: center;
+                    max-width: 90%;
+                    word-wrap: break-word; /* Ensure long captions wrap */
+                }
+
+                #closeFullscreen {
+                    position: absolute;
+                    top: 20px;
+                    right: 35px;
+                    color: #0b0000;
+                    font-size: 40px;
+                    font-weight: bold;
+                    transition: 0.3s;
+                    cursor: pointer;
+                }
+
+                #closeFullscreen:hover,
+                #closeFullscreen:focus {
+                    color: #bbb;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
