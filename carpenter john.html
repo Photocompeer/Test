@@ -445,7 +445,7 @@
                     console.log('File available at', downloadURL);
 
                     // Save image metadata to Realtime Database
-                    const imageId = push(databaseRef(database, 'images')).key; // Generate unique ID
+                    const imageId = push(databaseRef(database, 'Carpenter J')).key; // Generate unique ID
                     set(databaseRef(database, 'images/' + imageId), {
                         url: downloadURL,
                         name: imageName,
@@ -462,7 +462,7 @@
         // Function to fetch and display images from Firebase Realtime Database
         const fetchAndDisplayImages = () => {
             loadingMessage.style.display = 'block'; // Show loading message
-            onValue(databaseRef(database, 'images'), (snapshot) => {
+            onValue(databaseRef(database, 'Carpenter J'), (snapshot) => {
                 const images = snapshot.val();
                 galleryContainer.innerHTML = ''; // Clear current gallery
                 if (images) {
@@ -518,5 +518,13 @@
         // Fetch images on page load
         fetchAndDisplayImages();
     </script>
+              <ol>
+                <button id="backtotop">
+                    <i class="material-icons">arrow_upward</i>
+                </button>
+              </ol>
+            <footer id="copyright">
+                <p>&copy; pearlysongs 2025</p>
+            </footer>
 </body>
 </html>
