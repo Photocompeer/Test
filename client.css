@@ -339,7 +339,7 @@
         }
 
             div{
-                max-width: 1400px;
+                max-width: 1200px;
                 max-height: fit-content;
                 margin: 20px auto; /* Added vertical margin */
                 padding: 10px; /* Adjusted padding */
@@ -372,7 +372,7 @@
             }
 
             #songs{
-                 max-width: 1300px;
+                 max-width: 1200px;
                 max-height: fit-content;
                 margin: 20px auto; /* Added vertical margin */
                 padding: 10px; /* Adjusted padding */
@@ -400,7 +400,7 @@
             }
 
             #forward{
-                max-width: 1000px;
+                max-width: 1200px;
                 max-height: fit-content;
                 margin: 20px auto; /* Added vertical margin */
                 padding: 10px; /* Adjusted padding */               
@@ -433,7 +433,7 @@
             }
 
             #biography{
-                max-width: 1000px;
+                max-width: 1200px;
                 max-height: fit-content;
                 margin: 20px auto; /* Added vertical margin */
                 padding: 10px; /* Adjusted padding */
@@ -464,7 +464,7 @@
             }
 
             #wandh{
-                max-width: 1000px;
+                max-width: 1200px;
                 max-height: fit-content;
                 margin: 20px auto; /* Added vertical margin */
                 padding: 10px; /* Adjusted padding */
@@ -495,7 +495,7 @@
             }
 
             #children{
-                max-width: 1000px;
+                max-width: 1200px;
                 max-height: fit-content;
                 margin: 20px auto; /* Added vertical margin */
                 padding: 10px; /* Adjusted padding */
@@ -526,7 +526,7 @@
             }
 
             #workplace{
-                max-width: 1000px;
+                max-width: 1200px;
                 max-height: fit-content;
                 margin: 20px auto; /* Added vertical margin */
                 padding: 10px; /* Adjusted padding */
@@ -557,7 +557,7 @@
             }
 
              #acknowledgement{
-                max-width: 1000px;
+                max-width: 1200px;
                 max-height: fit-content;
                 margin: 20px auto; /* Added vertical margin */
                 padding: 10px; /* Adjusted padding */
@@ -589,7 +589,7 @@
 
             
              #program{
-                max-width: 1000px;
+                max-width: 1200px;
                 max-height: fit-content;
                 margin: 20px auto; /* Added vertical margin */
                 padding: 10px; /* Adjusted padding */
@@ -619,7 +619,7 @@
             }
 
             #colleagues{
-                max-width: 1000px;
+                max-width: 1200px;
                 max-height: fit-content;
                 margin: 20px auto; /* Added vertical margin */
                 padding: 10px; /* Adjusted padding */
@@ -650,7 +650,7 @@
             }
 
             #grandchildren{
-                max-width: 1000px;
+                max-width: 1200px;
                 max-height: fit-content;
                 margin: 20px auto; /* Added vertical margin */
                 padding: 10px; /* Adjusted padding */
