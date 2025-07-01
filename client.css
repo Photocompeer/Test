@@ -1,4 +1,4 @@
- /* Universal box-sizing for consistent layouts */
+        /* Universal box-sizing for consistent layouts */
         * {
             text-decoration: none;
             margin: 0;
@@ -17,6 +17,7 @@
             background-position: center top; /* Adjusted for better mobile appearance */
             background-size: 10%; /* Adjusted for better scaling on different screens */
             margin-left: 0;
+            align-items: center;
         }
 
         nav {
@@ -180,6 +181,16 @@
             min-width: 280px; /* Minimum width for each gallery item before wrapping */
         }
 
+        .gallery h1{
+                font-size: 3rem;
+                border-radius: 10px;
+                text-shadow: 2px 2px 5px #fc0303;
+                color: #0b0b0b;
+                margin: 1rem;
+                font-weight: bold;
+                align-content: center;
+        }
+
         .gallery img {
             width: 100%;
             height: 200px; /* Set a fixed height or min-height for consistent gallery image sizes */
@@ -249,13 +260,6 @@
             color: white;
             font-family: Arial, Helvetica, sans-serif;
             letter-spacing: 1px;
-        }
-
-        #copyright {
-            text-align: center;
-            margin: 0.5px;
-            font-style: oblique;
-            color: white;
         }
 
         /* Full-screen overlay styles */
@@ -333,6 +337,7 @@
             nav #icon {
                 margin-right: 10px;
             }
+        }
 
             div{
                 max-width: 1200px;
@@ -365,10 +370,11 @@
                font-style: italic;
                font-weight: bolder;
                color: #f4eef0f4;
+               margin-left: 2rem;
             }
 
             #songs{
-                 max-width: 1200px;
+                max-width: 1200px;
                 max-height: fit-content;
                 margin: 20px auto; /* Added vertical margin */
                 padding: 10px; /* Adjusted padding */
@@ -380,6 +386,7 @@
                 gap: 15px; /* Space between gallery items */
                 overflow: visible; /* Changed from auto, let content manage overflow */ 
                 box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
+                align-items: center;
             }
 
             #songs p{
@@ -413,6 +420,7 @@
                 gap: 15px; /* Space between gallery items */
                 overflow: visible; /* Changed from auto, let content manage overflow */ 
                 box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
+                align-items: center;
             }
 
             #forward p{
@@ -443,7 +451,8 @@
                 justify-content: center; /* Center gallery items horizontally */
                 gap: 15px; /* Space between gallery items */
                 overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
+                box-shadow: 0 10px 10px rgba(0, 0,0,0.5);
+                align-items: center;
             }
 
             #biography p{
@@ -474,7 +483,8 @@
                 justify-content: center; /* Center gallery items horizontally */
                 gap: 15px; /* Space between gallery items */
                 overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
+                box-shadow: 0 10px 10px rgba(0, 0,0,0.5);
+                align-items: center; 
             }
 
             #wandh p{
@@ -506,6 +516,7 @@
                 gap: 15px; /* Space between gallery items */
                 overflow: visible; /* Changed from auto, let content manage overflow */ 
                 box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
+                align-items: center;
             }
 
             #children p{
@@ -537,6 +548,7 @@
                 gap: 15px; /* Space between gallery items */
                 overflow: visible; /* Changed from auto, let content manage overflow */ 
                 box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
+                align-items: center;
             }
 
             #workplace p{
@@ -567,7 +579,8 @@
                 justify-content: center; /* Center gallery items horizontally */
                 gap: 15px; /* Space between gallery items */
                 overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
+                box-shadow: 0 10px 10px rgba(0, 0,0,0.5);
+                align-items: center; 
             }
 
             #acknowledgement p{
@@ -599,7 +612,8 @@
                 justify-content: center; /* Center gallery items horizontally */
                 gap: 15px; /* Space between gallery items */
                 overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
+                box-shadow: 0 10px 10px rgba(0, 0,0,0.5);
+                align-items: center; 
             }
 
             #program p{
@@ -629,7 +643,8 @@
                 justify-content: center; /* Center gallery items horizontally */
                 gap: 15px; /* Space between gallery items */
                 overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
+                box-shadow: 0 10px 10px rgba(0, 0,0,0.5);
+                align-items: center;
             }
 
             #colleagues p{
@@ -660,7 +675,8 @@
                 justify-content: center; /* Center gallery items horizontally */
                 gap: 15px; /* Space between gallery items */
                 overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
+                box-shadow: 0 10px 10px rgba(0, 0,0,0.5);
+                align-items: center;
             }
 
             #grandchildren p{
