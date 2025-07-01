@@ -18,6 +18,7 @@
             background-size: 10%; /* Adjusted for better scaling on different screens */
             margin-left: 0;
             max-height: fit-content;
+            max-width: fit-content;
         }
 
         nav {
@@ -370,6 +371,7 @@
                font-style: italic;
                font-weight: bolder;
                color: #f4eef0f4;
+               margin-left: 2rem;
             }
 
             #songs{
@@ -389,7 +391,7 @@
 
             #songs p{
                 font-size: 1.5rem;
-                margin: 1rem; 
+                margin-left: 2rem; 
                 padding: 5px;
                 z-index: 1000; /* Sit on top */
                 background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
@@ -422,7 +424,7 @@
 
             #forward p{
                 font-size: 1.5rem;
-                margin: 1rem; 
+                margin-left: 2rem;
                 padding: 5px;
                 z-index: 1000; /* Sit on top */
                 background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
@@ -453,7 +455,7 @@
 
             #biography p{
                 font-size: 1.5rem;
-                margin: 1rem; 
+                margin-left: 2rem; 
                 padding: 5px;
                 z-index: 1000; /* Sit on top */
                 background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
@@ -484,7 +486,7 @@
 
             #wandh p{
                 font-size: 1.5rem;
-                margin: 1rem; 
+                margin-left: 2rem;
                 padding: 5px;
                 z-index: 1000; /* Sit on top */
                 background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
@@ -515,7 +517,7 @@
 
             #children p{
                 font-size: 1.5rem;
-                margin: 1rem; 
+                margin-left: 2rem; 
                 padding: 5px;
                 z-index: 1000; /* Sit on top */
                 background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
@@ -546,7 +548,7 @@
 
             #workplace p{
                 font-size: 1.5rem;
-                margin: 1rem; 
+                margin-left: 2rem;
                 padding: 5px;
                 z-index: 1000; /* Sit on top */
                 background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
@@ -577,7 +579,7 @@
 
             #acknowledgement p{
                 font-size: 1.5rem;
-                margin: 1rem; 
+                margin-left: 2rem;
                 padding: 5px;
                 z-index: 1000; /* Sit on top */
                 background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
@@ -609,7 +611,7 @@
 
             #program p{
                 font-size: 1.5rem;
-                margin: 1rem; 
+                margin-left: 2rem;
                 padding: 5px;
                 z-index: 1000; /* Sit on top */
                 background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
@@ -639,7 +641,7 @@
 
             #colleagues p{
                 font-size: 1.5rem;
-                margin: 1rem; 
+                margin-left: 2rem;
                 padding: 5px;
                 z-index: 1000; /* Sit on top */
                 background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
@@ -670,7 +672,7 @@
 
             #grandchildren p{
                 font-size: 1.5rem;
-                margin: 1rem; 
+                margin-left: 2rem; 
                 padding: 5px;
                 z-index: 1000; /* Sit on top */
                 background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
