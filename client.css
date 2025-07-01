@@ -17,7 +17,6 @@
             background-position: center top; /* Adjusted for better mobile appearance */
             background-size: 10%; /* Adjusted for better scaling on different screens */
             margin-left: 0;
-            align-items: center;
         }
 
         nav {
@@ -358,6 +357,10 @@
                 overflow: visible; /* Changed from auto, let content manage overflow */ 
                 box-shadow: 0 10px 10px rgba(0, 0,0,0.5);    
             }
+
+            header{
+                align-items: center;
+             }
 
             .wrapper{
                 border-top-left-radius: 30px;
