@@ -1,714 +1,367 @@
-        /* Universal box-sizing for consistent layouts */
-        * {
-            text-decoration: none;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Ariel', sans-serif;
-            font-size: 15px;
-            line-height: 1.5;
-            /* Consider more subtle background for mobile performance and readability */
-            background-image: url(../images/Adinkra-nkyinkyim-bold-400w-280x280.png);
-            background-repeat: repeat; /* Changed to repeat for better mobile tiling */
-            background-position: center top; /* Adjusted for better mobile appearance */
-            background-size: 10%; /* Adjusted for better scaling on different screens */
-            margin-left: 0;
-        }
-
-        nav {
-            background: #025037;
-            height: 80px;
-            width: 100%;
-            /* Added display: flex for better alignment of logo and menu */
-            display: flex;
-            justify-content: space-between; /* Pushes logo to left, menu to right */
-            align-items: center; /* Vertically centers items */
-            padding: 0 20px; /* Added padding for smaller screens */
-            position: relative; /* For positioning the mobile menu */
-        }
-
-        label.logo {
-            font-size: 35px;
-            cursor: pointer;
-            line-height: 80px;
-            font-weight: bold;
-            color: white;
-            padding: 0 20px; /* Adjusted padding for responsiveness */
-        }
-
-        nav ul {
-            float: right; /* Keep float for larger screens */
-            margin-right: 20px; /* Adjusted margin */
-            display: flex; /* Use flexbox for desktop navigation items */
-        }
-
-        nav li {
-            display: inline-block;
-            margin: 0 8px; /* Adjusted margin for horizontal spacing */
-            line-height: 80px;
-        }
-
-        nav a {
-            color: white;
-            font-size: 18px;
-            text-transform: uppercase;
-            border: 1px solid transparent;
-            padding: 7px 10px;
-            border-radius: 3px; /* Changed from border: 3px; to border-radius for aesthetics */
-        }
-
-        a.active,
-        a:hover {
-            border: 1px solid white;
-            transition: .5s;
-        }
-
-        nav #icon {
-            color: white;
-            font-size: 30px;
-            line-height: 80px;
-            float: right;
-            margin-right: 20px; /* Adjusted margin */
-            cursor: pointer;
-            display: none; /* Hidden by default on larger screens */
-        }
-
-        /* Media Queries for Responsiveness */
-
-        @media (max-width: 909px) { /* This breakpoint handles the transition to mobile menu */
-            label.logo {
-                font-size: 28px; /* Slightly smaller logo on smaller screens */
-                padding-left: 20px;
-            }
-
-            nav #icon {
-                display: block; /* Show the hamburger icon */
-            }
-
-            nav ul {
-                position: fixed;
-                width: 100%;
-                height: 100vh;
-                background: #2f3640;
-                top: 80px; /* Position below the nav bar */
-                left: -100%; /* Initially hide the menu off-screen */
-                text-align: center;
-                transition: all .5s;
-                flex-direction: column; /* Stack menu items vertically */
-                justify-content: flex-start; /* Align items to the top */
-                padding-top: 20px; /* Add some padding at the top */
-            }
-
-            nav ul.show {
-                left: 0; /* Slide the menu in from the left */
-            }
-
-            nav li {
-                display: block;
-                margin: 20px 0; /* Adjusted vertical margin for stacked items */
-                line-height: normal; /* Reset line-height */
-            }
-
-            nav a {
-                font-size: 20px;
-                padding: 10px 0; /* Increase clickable area */
-                display: block; /* Make links take full width for easier tapping */
-            }
-
-            a.active,
-            a:hover {
-                border: none;
-                color: #3498db;
-            }
-
-            /* Adjust body background for very small screens if needed */
-            body {
-                background-size: 20%; /* Larger background pattern for smaller screens */
-                background-position: center;
-            }
-        }
-
-        /* imgutils set to visible To UpLoad Images to FirebaseDatabase */
-        #imgutils {
-            visibility: hidden;
-            /* On smaller screens, you might want to make this more compact or hide it differently if it were visible */
-            padding: 15px; /* Added some padding */
-            text-align: center; /* Center content */
-        }
-        #imgutils input[type="text"],
-        #imgutils input[type="file"],
-        #imgutils button {
-            width: 90%; /* Make inputs and buttons fill most of the width */
-            max-width: 300px; /* Limit max width for larger screens */
-            margin-bottom: 10px; /* Add spacing between elements */
-            padding: 8px;
-            font-size: 16px;
-        }
-        #myimage {
-            max-width: 100%; /* Ensure preview image is responsive */
-            height: auto;
-            display: block; /* Remove extra space below image */
-            margin: 10px auto; /* Center the preview image */
-        }
-
-
-        /* Gallery Container - Using Flexbox for responsiveness */
-        #galleryContainer {
-            max-width: 1200px;
-            max-height: fit-content;
-            margin: 20px auto; /* Added vertical margin */
-            padding: 10px; /* Adjusted padding */
-            background-color: #f2f2f2;
-            display: flex; /* Enable flexbox */
-            flex-wrap: wrap; /* Allow items to wrap to the next line */
-            justify-content: center; /* Center gallery items horizontally */
-            gap: 15px; /* Space between gallery items */
-            overflow: visible; /* Changed from auto, let content manage overflow */
-        }
-
-        .gallery {
-            border: 1px solid #ccc;
-            width: calc(33.333% - 20px); /* Three items per row with gap */
-            margin: 0; /* Reset margin from original float layout */
-            border: 5px solid rgb(246, 235, 235);
-            box-sizing: border-box; /* Include padding and border in the element's total width and height */
-            flex-grow: 1; /* Allow items to grow to fill space */
-            min-width: 280px; /* Minimum width for each gallery item before wrapping */
-        }
-
-        .gallery h1{
-                font-size: 3rem;
-                border-radius: 10px;
-                text-shadow: 2px 2px 5px #fc0303;
-                color: #0b0b0b;
-                margin: 1rem;
-                font-weight: bold;
-                align-content: center;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 200px; /* Set a fixed height or min-height for consistent gallery image sizes */
-            object-fit: cover; /* Crop image to fit the container while maintaining aspect ratio */
-            display: block; /* Remove extra space below image */
-        }
-
-        .gallery figcaption {
-            padding: 15px;
-            text-align: center;
-            background-color: white;
-            font-size: medium;
-            font-style: normal;
-        }
-
-        .gallery img:hover {
-            cursor: pointer;
-            filter: brightness(77%);
-        }
-
-        /* Back to Top Button */
-        #backtotop {
-            right: 20px; /* Adjusted for smaller screens */
-            bottom: 20px; /* Adjusted for smaller screens */
-            width: 50px;
-            height: 50px;
-            position: fixed;
-            border-radius: 50%;
-            background: #e62739;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-            color: #ffff;
-            outline: none;
-            cursor: pointer;
-            border: none;
-            display: flex; /* Use flexbox for centering icon */
-            justify-content: center;
-            align-items: center;
-        }
-
-        #backtotop:active {
-            background: #cc2333;
-        }
-
-        /* Contact Info (rsvp) */
-        .rsvp {
-            font-size: 1.2rem; /* Slightly smaller font for mobile */
-            text-align: center;
-            margin: 1rem;
-            text-shadow: 2px 2px 5px #fc0303;
-            color: #0b0b0b;
-            font-weight: bold;
-            padding: 10px; /* Added padding */
-            visibility: hidden;
-        }
-
-        .rsvp h5 {
-            line-height: 1.6; /* Improve readability for contact details */
-        }
-
-        /* Footer */
-        footer {
-            padding: 20px;
-            font-size: 17px;
-            font-weight: bold;
-            text-align: center;
-            background: #025037;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            letter-spacing: 1px;
-        }
-
-        /* Full-screen overlay styles */
-        #fullscreenOverlay {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            background-color: rgba(252, 249, 249, 0.9); /* White with opacity */
-            justify-content: center; /* Center content horizontally */
-            align-items: center; /* Center content vertically */
-            flex-direction: column; /* Stack image and caption vertically */
-            border: none; /* Remove border for cleaner look */
-            padding: 20px; /* Add some padding inside the overlay */
-            box-sizing: border-box; /* Include padding in sizing */
-        }
-
-        #fullscreenImage {
-            max-width: 95%; /* Increased max-width for better mobile viewing */
-            max-height: 80vh; /* Use viewport height for better scaling */
-            display: block;
-            margin: 0 auto 10px auto; /* Center the image with space below */
-            object-fit: contain;
-        }
-
-        #fullscreenCaption {
-            color: black;
-            font-size: 1.2rem; /* Adjusted font size for mobile */
-            padding: 10px 0;
-            text-align: center;
-            max-width: 90%;
-            word-wrap: break-word;
-        }
-
-        #closeFullscreen {
-            position: absolute;
-            top: 15px; /* Adjusted position */
-            right: 15px; /* Adjusted position */
-            color: #0b0000;
-            font-size: 35px; /* Slightly smaller close button */
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        #closeFullscreen:hover,
-        #closeFullscreen:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-
-        /* Additional Media Queries for more granular control */
-        @media (max-width: 768px) {
-            .gallery {
-                width: calc(50% - 15px); /* Two items per row on tablets */
-            }
-        }
-
-        @media (max-width: 576px) {
-            .gallery {
-                width: 90%; /* Single item per row on smaller phones */
-                margin: 10px auto; /* Center the single item */
-            }
-
-            label.logo {
-                font-size: 24px;
-                padding-left: 10px;
-            }
-
-            nav #icon {
-                margin-right: 10px;
-            }
-        }
-
-            div{
-                max-width: 1200px;
-                max-height: fit-content;
-                margin: 20px auto; /* Added vertical margin */
-                padding: 10px; /* Adjusted padding */
-                background-image: url(images/franklin\(1\).png);
-                background-repeat:no-repeat;
-                background-size:cover;
-                background-position: center;
-                background-blend-mode:normal;
-                border: 1px solid goldenrod;
-                align-items: center;
-                display: flex; /* Enable flexbox */
-                flex-wrap: wrap; /* Allow items to wrap to the next line */
-                justify-content: center; /* Center gallery items horizontally */
-                gap: 15px; /* Space between gallery items */
-                overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5);    
-            }
-
-            header{
-                align-items: center;
-             }
-
-            .wrapper{
-                border-top-left-radius: 30px;
-                border-bottom-right-radius: 30px;
-            } 
-
-            .wrapper li a{
-               align-items:center;
-               font-size: 1.5rem;
-               font-style: italic;
-               font-weight: bolder;
-               color: #f4eef0f4;
-               margin-left: 2rem;
-            }
-
-            #songs{
-                max-width: 1200px;
-                max-height: fit-content;
-                margin: 20px auto; /* Added vertical margin */
-                padding: 10px; /* Adjusted padding */
-                background-color: #361b1b;
-                border: 1px solid goldenrod;
-                display: flex; /* Enable flexbox */
-                flex-wrap: wrap; /* Allow items to wrap to the next line */
-                justify-content: center; /* Center gallery items horizontally */
-                gap: 15px; /* Space between gallery items */
-                overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
-                align-items: center;
-            }
-
-            #songs p{
-                font-size: 1.5rem;
-                margin-left: 2rem; 
-                padding: 5px;
-                z-index: 1000; /* Sit on top */
-                background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
-                line-height: 2rem;
-                color: #131313;
-                letter-spacing: 0.5rem;
-                border-bottom-left-radius: 30px;
-                border-bottom-right-radius: 30px;
-            }
-
-            #forward{
-                max-width: 1200px;
-                max-height: fit-content;
-                margin: 20px auto; /* Added vertical margin */
-                padding: 10px; /* Adjusted padding */               
-                background-color: #f5f3f3;
-                background-image: url(images/franklin\ 2.png);
-                border: 1px solid goldenrod;
-                background-repeat:no-repeat;
-                background-size:cover;
-                background-position: center;
-                background-blend-mode:normal;
-                display: flex; /* Enable flexbox */
-                flex-wrap: wrap; /* Allow items to wrap to the next line */
-                justify-content: center; /* Center gallery items horizontally */
-                gap: 15px; /* Space between gallery items */
-                overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
-                align-items: center;
-            }
-
-            #forward p{
-                font-size: 1.5rem;
-                margin-left: 2rem;
-                padding: 5px;
-                z-index: 1000; /* Sit on top */
-                background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
-                line-height: 2rem;
-                color: #131313;
-                letter-spacing: 0.5rem;
-                border-top-left-radius: 30px;
-                border-bottom-right-radius: 30px;
-            }
-
-            #biography{
-                max-width: 1200px;
-                max-height: fit-content;
-                margin: 20px auto; /* Added vertical margin */
-                padding: 10px; /* Adjusted padding */
-                background-color: #f2f2f2;
-                background-image: url(images/franklin\(1\).png);
-                border: 1px solid goldenrod;
-                background-repeat:no-repeat;
-                background-size:cover;
-                display: flex; /* Enable flexbox */
-                flex-wrap: wrap; /* Allow items to wrap to the next line */
-                justify-content: center; /* Center gallery items horizontally */
-                gap: 15px; /* Space between gallery items */
-                overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5);
-                align-items: center;
-            }
-
-            #biography p{
-                font-size: 1.5rem;
-                margin-left: 2rem; 
-                padding: 5px;
-                z-index: 1000; /* Sit on top */
-                background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
-                line-height: 2rem;
-                color: #131313;
-                letter-spacing: 0.5rem;
-                border-top-right-radius: 30px;
-                border-bottom-left-radius: 30px;
-            }
-
-            #wandh{
-                max-width: 1200px;
-                max-height: fit-content;
-                margin: 20px auto; /* Added vertical margin */
-                padding: 10px; /* Adjusted padding */
-                background-color: #f2f2f2;
-                background-image: url(images/franklin\(1\).png);
-                border: 1px solid goldenrod;
-                background-repeat:no-repeat;
-                background-size:cover;
-                display: flex; /* Enable flexbox */
-                flex-wrap: wrap; /* Allow items to wrap to the next line */
-                justify-content: center; /* Center gallery items horizontally */
-                gap: 15px; /* Space between gallery items */
-                overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5);
-                align-items: center; 
-            }
-
-            #wandh p{
-                font-size: 1.5rem;
-                margin-left: 2rem;
-                padding: 5px;
-                z-index: 1000; /* Sit on top */
-                background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
-                line-height: 2rem;
-                color: #131313;
-                letter-spacing: 0.5rem;
-                border-top-left-radius: 30px;
-                border-bottom-right-radius: 30px;
-            }
-
-            #children{
-                max-width: 1200px;
-                max-height: fit-content;
-                margin: 20px auto; /* Added vertical margin */
-                padding: 10px; /* Adjusted padding */
-                background-color: #f2f2f2;
-                background-image: url(images/franklin\(1\).png);
-                border: 1px solid goldenrod;
-                background-repeat:no-repeat;
-                background-size:cover;
-                display: flex; /* Enable flexbox */
-                flex-wrap: wrap; /* Allow items to wrap to the next line */
-                justify-content: center; /* Center gallery items horizontally */
-                gap: 15px; /* Space between gallery items */
-                overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
-                align-items: center;
-            }
-
-            #children p{
-                font-size: 1.5rem;
-                margin-left: 2rem; 
-                padding: 5px;
-                z-index: 1000; /* Sit on top */
-                background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
-                line-height: 2rem;
-                color: #131313;
-                letter-spacing: 0.5rem;
-                border-top-right-radius: 30px;
-                border-bottom-left-radius: 30px;
-            }
-
-            #workplace{
-                max-width: 1200px;
-                max-height: fit-content;
-                margin: 20px auto; /* Added vertical margin */
-                padding: 10px; /* Adjusted padding */
-                background-color: #f2f2f2;
-                background-image: url(images/franklin\(1\).png);
-                border: 1px solid goldenrod;
-                background-repeat:no-repeat;
-                background-size:cover;
-                display: flex; /* Enable flexbox */
-                flex-wrap: wrap; /* Allow items to wrap to the next line */
-                justify-content: center; /* Center gallery items horizontally */
-                gap: 15px; /* Space between gallery items */
-                overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5); 
-                align-items: center;
-            }
-
-            #workplace p{
-                font-size: 1.5rem;
-                margin-left: 2rem;
-                padding: 5px;
-                z-index: 1000; /* Sit on top */
-                background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
-                line-height: 2rem;
-                color: #131313;
-                letter-spacing: 0.5rem;
-                border-top-left-radius: 30px;
-                border-bottom-left-radius: 30px;
-            }
-
-             #acknowledgement{
-                max-width: 1200px;
-                max-height: fit-content;
-                margin: 20px auto; /* Added vertical margin */
-                padding: 10px; /* Adjusted padding */
-                background-color: #f2f2f2;
-                background-image: url(images/franklin\(1\).png);
-                border: 1px solid goldenrod;
-                background-repeat:no-repeat;
-                background-size:cover;
-                display: flex; /* Enable flexbox */
-                flex-wrap: wrap; /* Allow items to wrap to the next line */
-                justify-content: center; /* Center gallery items horizontally */
-                gap: 15px; /* Space between gallery items */
-                overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5);
-                align-items: center; 
-            }
-
-            #acknowledgement p{
-                font-size: 1.5rem;
-                margin-left: 2rem;
-                padding: 5px;
-                z-index: 1000; /* Sit on top */
-                background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
-                line-height: 2rem;
-                color: #131313;
-                letter-spacing: 0.5rem;
-                border-top-right-radius: 30px;
-                border-bottom-right-radius: 30px;
-            }
-
-            
-             #program{
-                max-width: 1200px;
-                max-height: fit-content;
-                margin: 20px auto; /* Added vertical margin */
-                padding: 10px; /* Adjusted padding */
-                background-color: #f2f2f2;
-                background-image: url(images/franklin\(1\).png);
-                border: 1px solid goldenrod;
-                background-repeat:no-repeat;
-                background-size:cover;
-                display: flex; /* Enable flexbox */
-                flex-wrap: wrap; /* Allow items to wrap to the next line */
-                justify-content: center; /* Center gallery items horizontally */
-                gap: 15px; /* Space between gallery items */
-                overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5);
-                align-items: center; 
-            }
-
-            #program p{
-                font-size: 1.5rem;
-                margin-left: 2rem;
-                padding: 5px;
-                z-index: 1000; /* Sit on top */
-                background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
-                line-height: 2rem;
-                color: #131313;
-                letter-spacing: 0.5rem;
-                border-radius: 30px;
-            }
-
-            #colleagues{
-                max-width: 1200px;
-                max-height: fit-content;
-                margin: 20px auto; /* Added vertical margin */
-                padding: 10px; /* Adjusted padding */
-                background-color: #f2f2f2;
-                background-image: url(images/franklin\(1\).png);
-                border: 1px solid goldenrod;
-                background-repeat:no-repeat;
-                background-size:cover;
-                display: flex; /* Enable flexbox */
-                flex-wrap: wrap; /* Allow items to wrap to the next line */
-                justify-content: center; /* Center gallery items horizontally */
-                gap: 15px; /* Space between gallery items */
-                overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5);
-                align-items: center;
-            }
-
-            #colleagues p{
-                font-size: 1.5rem;
-                margin-left: 2rem;
-                padding: 5px;
-                z-index: 1000; /* Sit on top */
-                background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
-                line-height: 2rem;
-                color: #131313;
-                letter-spacing: 0.5rem;
-                border-top-right-radius: 30px;
-                border-bottom-left-radius: 30px;
-            }
-
-            #grandchildren{
-                max-width: 1200px;
-                max-height: fit-content;
-                margin: 20px auto; /* Added vertical margin */
-                padding: 10px; /* Adjusted padding */
-                background-color: #f2f2f2;
-                background-image: url(images/franklin\(1\).png);
-                border: 1px solid goldenrod;
-                background-repeat:no-repeat;
-                background-size:cover;
-                display: flex; /* Enable flexbox */
-                flex-wrap: wrap; /* Allow items to wrap to the next line */
-                justify-content: center; /* Center gallery items horizontally */
-                gap: 15px; /* Space between gallery items */
-                overflow: visible; /* Changed from auto, let content manage overflow */ 
-                box-shadow: 0 10px 10px rgba(0, 0,0,0.5);
-                align-items: center;
-            }
-
-            #grandchildren p{
-                font-size: 1.5rem;
-                margin-left: 2rem; 
-                padding: 5px;
-                z-index: 1000; /* Sit on top */
-                background-color: rgba(252, 249, 249, 0.782); /* White with opacity */
-                line-height: 2rem;
-                color: #131313;
-                letter-spacing: 0.5rem;
-                border-top-left-radius: 30px;
-                border-top-right-radius: 30px;
-            }
-
-            h1{
-                font-size: 3rem;
-                border-radius: 10px;
-                text-shadow: 2px 2px 5px #fc0303;
-                color: #171717;
-                margin: 1rem;
-                text-align: center;
-                font-weight: bold;
-            }
-
-
-            #copyright {
-                text-align: center;
-                margin: 0.5px;
-                font-style: oblique;
-                color: white;
-            }
+/* Universal box-sizing for easier layout calculations */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif; /* Use a common font */
+    margin: 0; /* Remove default body margin */
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* --- Navigation Bar --- */
+.main-nav {
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.main-nav .logo {
+    font-size: 1.8em; /* Responsive font size */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav .logo span {
+    margin-left: 5px;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Flexbox for horizontal menu on larger screens */
+}
+
+.main-nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.menu-icon {
+    font-size: 1.8em;
+    cursor: pointer;
+    display: none; /* Hide on larger screens */
+}
+
+/* --- Content Sections --- */
+main {
+    padding: 20px;
+    max-width: 1200px; /* Max width for larger screens */
+    margin: 0 auto; /* Center the content */
+}
+
+.content-section,
+.text-section,
+.gallery-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #0056b3;
+    margin-top: 0;
+    font-size: 2em; /* Responsive font size */
+}
+
+/* Table of Contents/Content Links */
+.content-links ul {
+    list-style: none;
+    padding: 0;
+    display: grid; /* Use CSS Grid for a flexible layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Auto-adjust columns */
+    gap: 10px; /* Space between grid items */
+}
+
+.content-links ul li {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.content-links ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: block;
+}
+
+.content-links ul li a:hover {
+    color: #0056b3;
+}
+
+/* Text Content Sections */
+.text-content p {
+    font-size: 1em;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Image Upload Controls */
+.image-upload-controls {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically on small screens */
+    gap: 15px;
+    align-items: flex-start; /* Align items to the start */
+    visibility: hidden;
+}
+
+.image-upload-controls input[type="text"],
+.image-upload-controls input[type="file"] {
+    width: 100%; /* Full width for inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    visibility: hidden;
+}
+
+.image-upload-controls img {
+    max-width: 100%; /* Ensure image doesn't overflow its container */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin-top: 10px;
+    display: block; /* Remove extra space below image */
+    visibility: hidden;
+}
+
+.image-upload-controls .button-group {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: 10px;
+    width: 100%;
+    visibility: hidden;
+}
+
+.image-upload-controls button {
+    flex: 1; /* Allow buttons to grow and shrink */
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    visibility: hidden;
+}
+
+.image-upload-controls button:hover {
+    background-color: #0056b3;
+    visibility: hidden;
+}
+
+/* Gallery Display */
+.gallery-display-container {
+    display: grid; /* Use CSS Grid for the gallery */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid columns */
+    gap: 15px; /* Space between gallery items */
+    margin-top: 20px;
+}
+
+.gallery-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 150px; /* Fixed height for consistency, adjust as needed */
+    object-fit: cover; /* Crop image to fit, maintaining aspect ratio */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item p {
+    padding: 10px;
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+    word-break: break-word; /* Prevent long words from overflowing */
+}
+
+/* Fullscreen Overlay for Images */
+#fullscreenOverlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#fullscreenImage {
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain; /* Ensure the whole image is visible */
+}
+
+#fullscreenCaption {
+    color: white;
+    margin-top: 10px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#closeFullscreen {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* For screens smaller than 768px (common tablet portrait and mobile) */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column; /* Stack logo and menu vertically */
+        align-items: flex-start;
+    }
+
+    .main-nav ul {
+        width: 100%;
+        flex-direction: column; /* Stack menu items vertically */
+        display: none; /* Hide menu by default on small screens */
+        text-align: center;
+    }
+
+    .main-nav ul.show {
+        display: flex; /* Show menu when 'show' class is toggled */
+    }
+
+    .main-nav ul li a {
+        padding: 12px 0; /* More vertical padding */
+        border-bottom: 1px solid #444; /* Separator for menu items */
+    }
+
+    .main-nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    .menu-icon {
+        display: block; /* Show menu icon on small screens */
+        position: absolute; /* Position the icon relative to the nav */
+        right: 20px;
+        top: 15px;
+    }
+
+    .content-links ul {
+        grid-template-columns: 1fr; /* Single column for content links */
+    }
+
+    .image-upload-controls {
+        align-items: stretch; /* Stretch inputs to full width */
+    }
+
+    .image-upload-controls .button-group {
+        flex-direction: column; /* Stack buttons vertically */
+    }
+
+    .gallery-display-container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Smaller grid items for mobile */
+    }
+
+    h1 {
+        font-size: 1.8em; /* Slightly smaller headings for mobile */
+    }
+}
+
+/* For screens even smaller than 480px (very small phones) */
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9em; /* Slightly smaller base font size */
+    }
+
+    .main-nav {
+        padding: 10px;
+    }
+
+    .main-nav .logo {
+        font-size: 1.5em;
+    }
+
+    .menu-icon {
+        font-size: 1.5em;
+        right: 10px;
+        top: 12px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    .gallery-display-container {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Even smaller grid items */
+    }
+}
+
+/* Optional: Back to top button styles if you add it to HTML */
+
+#backtotop {
+    display: none; 
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+#backtotop.show {
+    display: flex; /* Show when scrolled down */
+}
+
