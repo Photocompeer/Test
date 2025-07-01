@@ -17,8 +17,6 @@
             background-position: center top; /* Adjusted for better mobile appearance */
             background-size: 10%; /* Adjusted for better scaling on different screens */
             margin-left: 0;
-            max-height: fit-content;
-            max-width: fit-content;
         }
 
         nav {
